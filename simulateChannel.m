@@ -1,8 +1,15 @@
-function XAY = simulateChannel(d1,d2,e0,e1)
+function XAY = simulateChannel(dist,e0,e1)
+    if dist.num == 1
+        d1 = 0;
+        d2 = dist.d;
+    else
+        d1 = dist.d1;
+        d2 = dist.d2;
+    end
     samplex = rand;
     samplea = rand;
     sampley = rand;
-    if samplex <0.5
+    if samplex <dist.pXis1
         X=1;
         if samplea < e1
             A = d1;

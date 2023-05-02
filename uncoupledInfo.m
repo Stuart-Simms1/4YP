@@ -7,6 +7,7 @@ function expectedValue = uncoupledInfo(numIterations,dist,option)
 order = floor(log10(numIterations)/2);
 numits = 10^order;
 iterations = 10^order;
+HX = -xlogx(dist.pXis0)-xlogx(dist.pXis1);
 if option == 1
     for its = 1:iterations
         iXYa = zeros(numits,1);
@@ -28,7 +29,7 @@ if option == 1
                     a = dist.d2;
                 end
             end
-            iXYa(i) = 1 - (-xlogx(a)-xlogx(1-a));
+            iXYa(i) = HX - (-xlogx(a)-xlogx(1-a));
             ave(i) = sum(iXYa)/i;
         end
         AVE(its) = ave(end);
@@ -46,7 +47,7 @@ if option == 2
             else
                 a = dist.d1 + (dist.d2-dist.d1)*rand;
             end
-            iXYa(i) = 1 - (-xlogx(a)-xlogx(1-a));
+            iXYa(i) = HX - (-xlogx(a)-xlogx(1-a));
             ave(i) = sum(iXYa)/i;
         end
         AVE(its) = ave(end);
