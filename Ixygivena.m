@@ -1,5 +1,5 @@
 function output = Ixygivena(dist)
-%This function implements the general expression for I(X;Y|A) I found.
+%This function implements the general expression for coupled I(X;Y|A) I found.
     sA = length(dist.pA);
     sX = length(dist.pX);
     sY = length(dist.pY);
@@ -13,5 +13,5 @@ function output = Ixygivena(dist)
             end
         end
     end
-    output = information
+    output = information;
 end
