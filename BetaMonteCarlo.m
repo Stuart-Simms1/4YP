@@ -21,10 +21,10 @@ for a = 1:numPoints
     end
     toc
     disp(a);
-    txt1 = sprintf('sim100klinspace(01,10,100)upto%g.txt',A(a));
+    txt1 = sprintf('simlinspace(0.1,10,%d)upto%g.txt',numPoints,A(a));
     writematrix(mutualInfo,txt1)
 end
-txt = sprintf('sim100klinspace(01,10,100)final.txt');
+txt = sprintf('simlinspace(0.1,10,%d)final%dits.txt',numPoints,numIts);
 writematrix(mutualInfo,txt);
 surf(A,B,mutualInfo);
 xlabel('a')
@@ -127,6 +127,7 @@ end
 function mutualInfo = monteCarloComplicated(a,b,p0,numIts)
 % with normal arrays the timeit is 2.3773s
 % with GPU arrays the timeit is 142.2834s
+% on the Engineering computers it is 1.4674s
 
 XAY = zeros(numIts,3);
 for i = 1:numIts
