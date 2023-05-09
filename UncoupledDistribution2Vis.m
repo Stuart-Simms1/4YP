@@ -11,7 +11,7 @@ numPoints = 100;
 numIterations = 1000000;
 option = 1;
 d1 = 0.1;
-d2 = linspace(0,1,numDeltas);
+d2 = 0.9;
 
 for i = 1:length(d1)
     dist.d1 = d1(i);

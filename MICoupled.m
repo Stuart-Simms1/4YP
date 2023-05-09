@@ -7,7 +7,7 @@ dist.pXis1 = 1-dist.pXis0;
 % dist.num = 1;
 % dist.d = 0.22;
 dist.num = 2;
-dist.d1 = 0.2;
+dist.d1 = 0.1;
 dist.d2 = 0.4;
 numPoints = 100;
 

@@ -1,0 +1,18 @@
+%% Uncoupled information
+
+clear all
+close all
+clc
+
+
+d1 = linspace(0,1,100);
+d2 = d1;
+e0 = 0.2;
+e1 = 1-e0;
+MI = zeros(length(d1));
+for i = 1:length(d1)
+
+
+
+
+MI = zeros(numPoints);

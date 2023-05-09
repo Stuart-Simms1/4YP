@@ -5,7 +5,7 @@ clear all;
 % define variables
 numPoints = 100;
 mx = 10;
-A = linspace(1,10,numPoints);
+A = linspace(0.1,50,numPoints);
 B = A;
 % A = logspace(0,log10(50),numPoints);
 % B = logspace(0,log10(50),numPoints);
@@ -31,11 +31,32 @@ for i = 1:length(pXis0)
     % plot results
     figure(i)
     surf(A,B,IXYA,'EdgeColor','none')
-    title(sprintf('I(X;Y,A) when p(X=0) = %g for different shape parameters',pXis0(i)));
+    title(sprintf('I(X;Y,A) coupled vs uncoupled for different shape parameters'));
     xlabel('shape parameter a')
     ylabel('shape parameter b')
     zlabel('I(X;Y,A)')
-    axis([0;10;0;10;0;1])
+    axis([0;50;0;50;0;1])
+
+    % Compare to Uncoupled Case
+    uncoupled = readmatrix('UncoupledCaseTheory100x100,0to50.txt');
+    hold on
+    surf(A,B,uncoupled,'EdgeColor','none','FaceColor',[1 0 0], 'FaceAlpha',1,'EdgeAlpha', 0)
+
+    figure(i+1)
+    surf(A,B,uncoupled,'EdgeColor','none')
+    title(sprintf('Uncoupled I(X;Y,A) for different shape parameters'))
+    xlabel('shape parameter a')
+    ylabel('shape parameter b')
+    zlabel('Uncoupled I(X;Y,A)')
+    axis([0;50;0;50;0;1])
+
+    figure(i+2)
+    surf(A,B,IXYA-uncoupled,'EdgeColor','none')
+    title(sprintf('Difference between Coupled and Uncoupled I(X;Y,A)'))
+    xlabel('shape parameter a')
+    ylabel('shape parameter b')
+    zlabel('Difference in I(X;Y,A)')
+    axis([0;50;0;50;0;1])
 
 end
 
